@@ -1,0 +1,35 @@
+<style>
+    th, td {
+        padding: 10px;
+    }
+    th {
+        text-align: right;
+    }
+</style>
+
+<h1>A product</h1>
+
+<table>
+    <tbody>
+    <tr>
+        <th>Name:</th>
+        <td>{{ product.name}}</td>
+    </tr>
+    <tr>
+        <th>Category ID:</th>
+        <td>{{ product.category_id }}</td>
+    </tr>
+    <tr>
+        <th>Description:</th>
+        <td>{{ product.description}}</td>
+    </tr>
+    <tr>
+        <th>Price</th>
+        <td>{{ product.price }}</td>
+    </tr>
+    </tbody>
+</table>
+
+<br/>
+<a href="/show-articles">View All</a> -
+<a href="/update-article/{{ product.id }}">Update</a>
