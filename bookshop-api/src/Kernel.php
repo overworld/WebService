@@ -37,9 +37,6 @@ class Kernel extends BaseKernel
             }
         }
 
-        return array(
-            new Lexik\Bundle\JWTAuthenticationBundle\LexikJWTAuthenticationBundle(),
-        );
     }
 
     protected function configureContainer(ContainerBuilder $container, LoaderInterface $loader)

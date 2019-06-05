@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping\ManyToOne;
 use Doctrine\ORM\Mapping\JoinColumn;
+use Doctrine\ORM\Mapping\OneToMany;
 
 /**
  * @ApiResource
@@ -18,7 +19,7 @@ class Category
     /**
      * @ORM\Column(name = "id", type="integer")
      * @ORM\Id
-     * @ManyToOne(targetEntity="Product", inversedBy="category_id")
+     * @OneToMany(targetEntity="Product", mappedBy="category_id")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
@@ -60,5 +61,9 @@ class Category
         $this->name = $name;
     }
 
+    public function __toString()
+    {
+        return strval( $this->getId() );
+    }
 
 }

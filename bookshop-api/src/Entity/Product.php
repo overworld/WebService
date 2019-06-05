@@ -7,6 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping\OneToMany;
 use Doctrine\ORM\Mapping\JoinColumn;
+use Doctrine\ORM\Mapping\ManyToOne;
+
 /**
  * @ApiResource
  * @ORM\Entity
@@ -27,8 +29,7 @@ class Product
     protected $name;
 
     /**
-     *
-     * @OneToMany(targetEntity="Category", mappedBy="id")
+     * @ManyToOne(targetEntity="Category", inversedBy="id")
      * @JoinColumn(name="category_id", referencedColumnName="id")
      * @ORM\Column(name="category_id", type="integer", length=255, nullable = false)
      */
@@ -53,6 +54,13 @@ class Product
      * @ORM\Column(name="picture", type="string", length=255 , nullable = true)
      */
     protected $picture;
+
+
+    /**
+     * @ORM\OneToMany(targetEntity="ProductCart", mappedBy="product_id")
+     */
+    protected $carts;
+
 
     /**
      * @return mixed
@@ -96,10 +104,13 @@ class Product
 
     /**
      * @param mixed $category_id
+     * @return product
      */
-    public function setCategoryId($category_id)
+    public function setCategoryId(Category $category_id = null)
     {
-        $this->category_id = $category_id;
+        $this->$category_id = $category_id;
+
+        return $this;
     }
 
     /**
@@ -166,8 +177,27 @@ class Product
         $this->picture = $picture;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getCarts()
+    {
+        return $this->carts;
+    }
+
+    /**
+     * @param mixed $carts
+     */
+    public function setCarts($carts): void
+    {
+        $this->carts = $carts;
+    }
 
 
+    public function __toString()
+    {
+        return strval( $this->getId() );
+    }
 
 
 

@@ -70,6 +70,19 @@
     "doctrine/orm": {
         "version": "v2.5.14"
     },
+    "easycorp/easyadmin-bundle": {
+        "version": "1.17",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.17",
+            "ref": "66070ea553247b0cd5275e21d0fe5399a25f40be"
+        },
+        "files": [
+            "./config/packages/easy_admin.yaml",
+            "./config/routes/easy_admin.yaml"
+        ]
+    },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
@@ -102,6 +115,9 @@
         "files": [
             "./config/packages/nelmio_cors.yaml"
         ]
+    },
+    "pagerfanta/pagerfanta": {
+        "version": "v2.1.2"
     },
     "phpdocumentor/reflection-common": {
         "version": "1.0.1"
@@ -186,7 +202,7 @@
         ]
     },
     "symfony/form": {
-        "version": "v3.4.27"
+        "version": "v3.4.28"
     },
     "symfony/framework-bundle": {
         "version": "3.3",
@@ -217,10 +233,10 @@
         "version": "v3.4.27"
     },
     "symfony/intl": {
-        "version": "v3.4.27"
+        "version": "v3.4.28"
     },
     "symfony/options-resolver": {
-        "version": "v3.4.27"
+        "version": "v3.4.28"
     },
     "symfony/polyfill-apcu": {
         "version": "v1.11.0"
@@ -317,6 +333,18 @@
     },
     "symfony/yaml": {
         "version": "v3.4.27"
+    },
+    "twig/extensions": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.0",
+            "ref": "ddb2e0a77773b7fd75d8d649545f174e664500ab"
+        },
+        "files": [
+            "./config/packages/twig_extensions.yaml"
+        ]
     },
     "twig/twig": {
         "version": "v2.10.0"
