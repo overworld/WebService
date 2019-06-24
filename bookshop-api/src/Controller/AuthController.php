@@ -30,4 +30,24 @@ class AuthController extends AbstractController
     {
         return new Response(sprintf('Logged in as %s', $this->getUser()->getUsername()));
     }
+
+
+    public function AddAdminRole()
+    {
+
+        $userManager = $this->get('fos_user.user_manager');
+
+        $em = $this->getDoctrine()->getManager();
+
+        $userRepository = $em->getRepository("User");
+
+        $user = $userRepository->findOneBy(["id" => 3]);
+
+        $user->addRole("ROLE_ADMIN");
+
+        $em->persist($user);
+
+        $em->flush();
+        
+    }
 }

@@ -27,12 +27,6 @@ class Cart
 
 
     /**
-     * @ORM\Column(name = "product_id", type="integer" ,length=255, nullable = true)
-     */
-    protected $user_id;
-
-
-    /**
      * Many features have one product. This is the owning side.
      * @ManyToOne(targetEntity="User", inversedBy="carts")
      * @JoinColumn(name="product_id", referencedColumnName="id")
@@ -61,21 +55,7 @@ class Cart
         $this->id = $id;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getUserId()
-    {
-        return $this->user_id;
-    }
 
-    /**
-     * @param mixed $user_id
-     */
-    public function setUserId($user_id)
-    {
-        $this->user_id = $user_id;
-    }
 
 
 

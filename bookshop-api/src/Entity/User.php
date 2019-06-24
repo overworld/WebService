@@ -16,6 +16,8 @@ use Doctrine\ORM\Mapping\OneToMany;
  */
 class User implements UserInterface
 {
+
+
     /**
      * @ORM\Column(name = "id", type="integer")
      * @ORM\Id
@@ -44,6 +46,18 @@ class User implements UserInterface
      * @OneToMany(targetEntity="Cart", mappedBy="user")
      */
     protected $carts;
+
+    private $roles = [];
+
+    public function getRoles()
+    {
+        $role = $this->roles;
+
+        $role[] = 'ROLE_USER';
+
+        return array_unique($role);
+    }
+
 
 
     /**
@@ -129,6 +143,11 @@ class User implements UserInterface
     public function __construct()
     {
         $this->isActive = true;
+
+        $role = $this->roles;
+
+        $role[] = 'ROLE_USER';
+
     }
 
     /**
@@ -147,10 +166,10 @@ class User implements UserInterface
         $this->carts = $carts;
     }
 
-    public function getRoles()
+/*    public function getRoles()
     {
         return array('ROLE_USER');
-    }
+    }*/
 
     public function eraseCredentials()
     {
