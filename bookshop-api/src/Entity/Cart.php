@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping\ManyToOne;
 use Doctrine\ORM\Mapping\JoinColumn;
+use App\Entity\User;
 
 
 /**
@@ -54,9 +55,6 @@ class Cart
     {
         $this->id = $id;
     }
-
-
-
 
 
 

@@ -14,6 +14,10 @@ login_check:
   path:     /login_check
   methods:  [POST]
 
+addAdmin:
+  path: /addAdmin
+  controller: App\Controller\AuthController:addAdmin
+
 
 
 

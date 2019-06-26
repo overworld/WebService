@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping\ManyToOne;
 
 /**
  * @ApiResource
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\ProductRepository")
  */
 
 class Product

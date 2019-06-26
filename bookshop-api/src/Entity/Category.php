@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping\OneToMany;
 
 /**
  * @ApiResource
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\CategoryRepository")
  */
 
 class Category

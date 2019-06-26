@@ -53,11 +53,16 @@ class User implements UserInterface
     {
         $role = $this->roles;
 
-        $role[] = 'ROLE_USER';
+        //$role[] = 'ROLE_USER';
 
-        return array_unique($role);
+        return ($role);
     }
 
+    public function setRole($ajout)
+    {
+        $this->roles[] = $ajout;
+
+    }
 
 
     /**

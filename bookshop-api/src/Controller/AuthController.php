@@ -5,6 +5,8 @@ namespace App\Controller;
 
 
 
+use Doctrine\Common\Collections\ArrayCollection;
+use phpDocumentor\Reflection\Types\Array_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,6 +14,8 @@ use App\Entity\User;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class AuthController extends AbstractController
 {
+
+
     public function register(Request $request, UserPasswordEncoderInterface $encoder)
     {
         $em = $this->getDoctrine()->getManager();
@@ -32,22 +36,22 @@ class AuthController extends AbstractController
     }
 
 
-    public function AddAdminRole()
+    public function addAdmin()
     {
-
-        $userManager = $this->get('fos_user.user_manager');
 
         $em = $this->getDoctrine()->getManager();
 
-        $userRepository = $em->getRepository("User");
+        $userRepository = $em->getRepository("App\Entity\User");
 
-        $user = $userRepository->findOneBy(["id" => 3]);
+        $user = $userRepository->findOneBy(["id" => 5]);
 
-        $user->addRole("ROLE_ADMIN");
+        $user->setRole('ROLE_ADMIN');
 
         $em->persist($user);
 
-        $em->flush();
-        
+         $em->flush();
+
+        return new Response(sprintf('User ajouté dans le groupe Admin'));
+
     }
 }
